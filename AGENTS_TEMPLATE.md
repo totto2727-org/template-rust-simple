@@ -1,62 +1,71 @@
 # username/project
 
-Replace this paragraph with the project-specific guidance that AI agents need before modifying the repository.
+## Repository structure
 
-## Language Rules
-
-- Use English by default for source code, configuration, documentation, and other repository-recorded artifacts.
-- Replace or extend these rules when the copied project has additional language requirements.
-
-## Repository Structure
-
-- `Cargo.toml` defines the crate metadata, lint policy, and dependencies.
-- `rust-toolchain.toml` defines the Rust channel and rustup components.
-- `src/main.rs` contains the command-line application entry point.
-- `tests/` contains end-to-end command tests.
-- `package.nix` defines the installable Nix package built with nixpkgs' Rust platform independently of the rustup development toolchain.
-- `flake.nix` and `flake.lock` expose the package and overlay while pinning rustup, Just, and other Nix-provided tools.
-- `.github/workflows/` contains validation and optional publishing workflows.
-
-## Development Commands
-
-Run commands from the repository root inside the Nix development shell.
-
-### Execution Rules
-
-- Enter the environment with `nix develop` before running project commands.
-- Use Just recipes instead of invoking formatting, linting, build, or test commands directly.
-
-### Standard Tasks
-
-```bash
-just fix
-just check
-just build
-just test
-just run
-just ci
+```text
+.github/workflows/  Validation and publishing workflows
+Cargo.toml          Binary crate metadata, lint policy, and dependencies
+flake.nix           Development shell, package, and overlay outputs
+package.nix         Installable Nix package
+rust-toolchain.toml Rust channel and rustup components
+src/main.rs         Command-line entry point
+tests/              End-to-end command tests
 ```
 
-Targeted tasks are available as `fix-format`, `fix-lint`, `check-format`, and `check-lint`. Run `nix build` or `nix run .` directly when verifying the Nix package.
+Replace the sample paths with the copied project's actual source and test layout.
 
-## Package Updates
+## Development commands
 
-Update `Cargo.lock` when dependencies change. Update `rust-toolchain.toml` when the Rust channel, components, or targets change. Run `nix flake update` when Nix inputs change.
+### Execution rules
 
-## Rust Conventions
+- Run commands from the repository root.
+- Enter the environment with `nix develop` before running Cargo or Just tasks.
+- Use Just recipes for the standard Rust workflow; use Nix commands directly for package and flake validation.
 
-- Keep `unsafe` code forbidden unless the project documents and reviews a necessary exception.
-- Preserve the lint policy in `Cargo.toml` unless the project documents a deliberate change.
-- Cover externally observable command behavior with end-to-end tests.
+### Standard tasks
 
-## Architecture and Conventions
+- `nix develop` — Enter the Nix-defined development environment; rustup resolves the configured Rust channel separately.
+- `just fix` — Format source and apply supported lint fixes.
+- `just check` — Verify formatting and lint findings.
+- `just build` — Build the binary with every feature enabled.
+- `just test` — Run all tests with every feature enabled.
+- `just run` — Run the command locally.
+- `just ci` — Run the complete local Rust validation gate.
+- `nix build` — Build the installable Nix package.
+- `nix run .` — Run the packaged command.
+- `nix flake check --all-systems --no-build` — Evaluate every supported flake output without building it.
 
-Replace this section with the copied project's source layout, public boundaries, naming rules, and other repository-specific constraints.
+## Architecture
 
-## Development Tools
+### Command boundaries
 
-- **Rustup** - installs and selects the Rust toolchain declared in `rust-toolchain.toml`.
-- **Rust and Cargo** - build, check, test, and run the command-line application.
-- **Clippy and rustfmt** - lint and format Rust source code.
-- **Just** - provides the standard development commands.
-- **Nix flakes** - build the package with nixpkgs' Rust platform and expose its package and overlay while pinning rustup, Just, and other Nix-provided tools.
+- Replace this item with the copied project's command parsing, application logic, and side-effect ownership.
+- Keep recoverable failures explicit, preserve the documented exit behavior, and keep `unsafe` code forbidden unless a reviewed exception is necessary.
+
+### Public interface
+
+- Keep the complete command surface documented with caller-visible inputs, outputs, exit behavior, and constraints.
+- If the project exposes a library API, inspect the canonical crate registry documentation first and use its maintained API index when one exists; otherwise provide complete inline coverage or link a substantive existing guide.
+- Cover externally observable command behavior with focused end-to-end tests.
+
+### Packaging
+
+- Keep `package.nix` metadata, `Cargo.toml`, the flake package name, and the executable name aligned.
+- Remove package and overlay outputs only when the project deliberately retains the Nix development shell without distributing a Nix package.
+
+## Development tools
+
+- **Rustup**: Installs and selects the toolchain declared in `rust-toolchain.toml`.
+- **Rust and Cargo**: Build, check, test, and run the command-line application.
+- **Clippy and rustfmt**: Enforce lint and formatting policy.
+- **Just**: Defines the standard development task surface.
+- **Nix flakes**: Build the package and expose its overlay while pinning Nix inputs.
+
+## Package-specific rules
+
+- Replace this section with repository-specific invariants and remove placeholder guidance before handoff.
+- Keep publishing workflows disabled until every mutable `uses:` reference in each privileged publishing workflow is pinned to an audited full commit SHA.
+- Before enabling FlakeHub publication, use the official FlakeHub publishing wizard to verify the repository name, set visibility to `public`, and verify the trusted GitHub organization binding; run `nix flake check --all-systems --no-build` and confirm the workflow triggers only from protected `main`.
+- Update `Cargo.lock` after dependency or toolchain changes, update `rust-toolchain.toml` when the channel or components change, and run `nix flake update` after Nix input changes.
+
+_This AGENTS.md was generated from the [share-artifact skill](https://raw.githubusercontent.com/totto2727-org/agent/refs/heads/main/plugins/totto2727-coding/skills/share-artifact/SKILL.md) and [AGENTS template](https://raw.githubusercontent.com/totto2727-org/agent/refs/heads/main/plugins/totto2727-coding/skills/share-artifact/agents/template.md)._

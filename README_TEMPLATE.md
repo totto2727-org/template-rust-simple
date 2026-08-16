@@ -1,20 +1,17 @@
 # username/project
 
-Replace this paragraph with a concise description of what the command-line application does, who it is for, and why someone would use it.
+Replace this paragraph with a concise description of what the command-line application does, who it serves, and why a user would run it.
 
 ## Usage
 
-Replace the sample below with the copied project's primary command.
+Replace this example with the copied project's primary command.
 
 ```console
-$ cargo run --quiet
-Hello, world!
-
-$ nix run .
-Hello, world!
+$ project
+Replace this output.
 ```
 
-## Key Features
+## Key features
 
 - Replace this item with a user-visible capability.
 - Replace this item with another user-visible capability.
@@ -22,16 +19,29 @@ Hello, world!
 
 ## Prerequisites
 
-- Replace this item with a tool or runtime that end users need.
+- Replace this item with a tool, platform, account, or runtime that end users need.
 
 ## Setup
 
 Replace this paragraph with the minimal installation or dependency setup that end users need.
 
+## API
+
+### `project`
+
+Replace this text with the command's caller-visible inputs, outputs, exit behavior, and constraints. Replace or extend the example with the copied project's complete public command surface.
+
+```console
+$ project --help
+Replace this output.
+```
+
 ## Development
 
-For development commands, architecture, conventions, and AI-agent instructions, see [AGENTS.md](./AGENTS.md).
+For project structure and development commands, see [AGENTS.md](./AGENTS.md).
 
 ## License
 
 [MIT](./LICENSE)
+
+_This README was generated from the [share-artifact skill](https://raw.githubusercontent.com/totto2727-org/agent/refs/heads/main/plugins/totto2727-coding/skills/share-artifact/SKILL.md) and [README template](https://raw.githubusercontent.com/totto2727-org/agent/refs/heads/main/plugins/totto2727-coding/skills/share-artifact/readme/template.md)._
