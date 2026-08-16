@@ -17,7 +17,7 @@ Hello, world!
 ## Key features
 
 - Rust 2024 command-line layout with an end-to-end integration test
-- Reproducible Nix development shell with rustup and Just
+- Nix development shell with rustup and Just
 - Buildable Nix package and reusable overlay
 - Standard formatting, linting, build, test, run, and CI tasks
 - Strict Clippy policy with `unsafe` code forbidden by default
