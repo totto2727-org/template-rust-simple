@@ -20,11 +20,8 @@
         {
           default = pkgs.mkShell {
             packages = [
-              pkgs.cargo
-              pkgs.clippy
               pkgs.just
-              pkgs.rustc
-              pkgs.rustfmt
+              pkgs.rustup
             ];
           };
         });

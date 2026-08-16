@@ -13,10 +13,11 @@ After creating a repository with GitHub's **Use this template** button, complete
 
 1. Replace `project`, `username/project`, and the repository URL in `Cargo.toml`.
 2. Update the package description and keywords in `Cargo.toml`.
-3. Replace the placeholders in `README_TEMPLATE.md` with the copied project's user-facing overview, usage, features, prerequisites, setup, and license details.
-4. Replace the placeholders in `AGENTS_TEMPLATE.md` with the copied project's commands, architecture, and conventions.
-5. To publish the Nix flake to FlakeHub, rename `.github/workflows/flakehub-publish-rolling.yml.disabled` to `flakehub-publish-rolling.yml`. Delete the disabled file if FlakeHub publishing is not needed.
-6. Remove the template-only `README.md` and `AGENTS.md`, then promote the completed template files:
+3. Keep `rust-toolchain.toml` on stable Rust or replace its channel, components, and targets with the copied project's requirements.
+4. Replace the placeholders in `README_TEMPLATE.md` with the copied project's user-facing overview, usage, features, prerequisites, setup, and license details.
+5. Replace the placeholders in `AGENTS_TEMPLATE.md` with the copied project's commands, architecture, and conventions.
+6. To publish the Nix flake to FlakeHub, rename `.github/workflows/flakehub-publish-rolling.yml.disabled` to `flakehub-publish-rolling.yml`. Delete the disabled file if FlakeHub publishing is not needed.
+7. Remove the template-only `README.md` and `AGENTS.md`, then promote the completed template files:
 
 ```bash
 rm README.md AGENTS.md

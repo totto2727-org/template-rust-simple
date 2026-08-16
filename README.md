@@ -8,7 +8,8 @@ Create a repository with GitHub's **Use this template** button, then follow the 
 
 ## Included Tooling
 
-- A Nix development shell with Rust, Cargo, Clippy, rustfmt, and Just.
+- A Nix development shell with rustup and Just.
+- A repository-level Rust toolchain configuration with Clippy and rustfmt.
 - GitHub Actions checks for formatting, linting, building, and testing.
 - An optional FlakeHub publishing workflow, disabled by default.
 - A sample library and integration test that can be replaced with project code.

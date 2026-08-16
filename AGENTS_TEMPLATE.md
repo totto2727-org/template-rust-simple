@@ -10,9 +10,10 @@ Replace this paragraph with the project-specific guidance that AI agents need be
 ## Repository Structure
 
 - `Cargo.toml` defines the crate metadata, lint policy, and dependencies.
+- `rust-toolchain.toml` defines the Rust channel and rustup components.
 - `src/` contains the library implementation.
 - `tests/` contains integration tests.
-- `flake.nix` and `flake.lock` define the reproducible development environment.
+- `flake.nix` and `flake.lock` pin rustup, Just, and other Nix-provided development tools.
 - `.github/workflows/` contains validation and optional publishing workflows.
 
 ## Development Commands
@@ -38,7 +39,7 @@ Targeted tasks are available as `fix-format`, `fix-lint`, `check-format`, and `c
 
 ## Package Updates
 
-When upgrading a package or the Rust toolchain, update `Cargo.lock` as needed and run `nix flake update`.
+Update `Cargo.lock` when dependencies change. Update `rust-toolchain.toml` when the Rust channel, components, or targets change. Run `nix flake update` when Nix inputs change.
 
 ## Rust Conventions
 
@@ -52,7 +53,8 @@ Replace this section with the copied project's source layout, public boundaries,
 
 ## Development Tools
 
+- **Rustup** - installs and selects the Rust toolchain declared in `rust-toolchain.toml`.
 - **Rust and Cargo** - build, check, test, and package the library.
 - **Clippy and rustfmt** - lint and format Rust source code.
 - **Just** - provides the standard development commands.
-- **Nix flakes** - provide the pinned development toolchain and dependencies.
+- **Nix flakes** - pin rustup, Just, and other Nix-provided development tools.
