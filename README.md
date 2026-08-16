@@ -1,6 +1,6 @@
 # Rust Simple CLI Template
 
-A GitHub repository template for starting a small Rust command-line application with a reproducible Nix development shell, a buildable package and overlay, standard Just tasks, continuous integration, and optional FlakeHub publishing.
+A GitHub repository template for starting a small Rust command-line application with a Nix development shell, a buildable package and overlay, standard Just tasks, continuous integration, and optional FlakeHub publishing.
 
 ## Usage
 

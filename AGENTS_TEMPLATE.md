@@ -24,7 +24,7 @@ Replace the sample paths with the copied project's actual source and test layout
 
 ### Standard tasks
 
-- `nix develop` — Enter the pinned development environment.
+- `nix develop` — Enter the Nix-defined development environment; rustup resolves the configured Rust channel separately.
 - `just fix` — Format source and apply supported lint fixes.
 - `just check` — Verify formatting and lint findings.
 - `just build` — Build the binary with every feature enabled.
@@ -59,7 +59,7 @@ Replace the sample paths with the copied project's actual source and test layout
 - **Rust and Cargo**: Build, check, test, and run the command-line application.
 - **Clippy and rustfmt**: Enforce lint and formatting policy.
 - **Just**: Defines the standard development task surface.
-- **Nix flakes**: Build the package and expose its overlay while pinning development dependencies.
+- **Nix flakes**: Build the package and expose its overlay while pinning Nix inputs.
 
 ## Package-specific rules
 

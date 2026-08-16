@@ -10,7 +10,7 @@ Cargo.toml                  Binary crate metadata and lint policy
 Justfile                    Standard repository tasks
 flake.nix                   Development shell, package, and overlay outputs
 package.nix                 Nix package for the compiled command
-rust-toolchain.toml         Pinned rustup channel and components
+rust-toolchain.toml         Rustup channel and components
 src/main.rs                 Sample command-line entry point
 tests/cli.rs                End-to-end command test
 ```
@@ -26,7 +26,7 @@ tests/cli.rs                End-to-end command test
 
 ### Standard tasks
 
-- `nix develop` — Enter the environment that supplies rustup and Just; rustup selects `rust-toolchain.toml`.
+- `nix develop` — Enter the environment that supplies rustup and Just; rustup resolves the channel declared in `rust-toolchain.toml`.
 - `just fix` — Format Rust source and apply supported Clippy fixes.
 - `just check` — Verify rustfmt and Clippy findings.
 - `just build` — Build the binary with every feature enabled.
@@ -64,7 +64,7 @@ tests/cli.rs                End-to-end command test
 - **Rust and Cargo**: Build, check, test, and run the command-line application.
 - **Clippy and rustfmt**: Enforce lint and formatting policy.
 - **Just**: Defines the standard development task surface.
-- **Nix flakes**: Build the package and expose its overlay while pinning development dependencies.
+- **Nix flakes**: Build the package and expose its overlay while pinning Nix inputs; the floating rustup channel is resolved separately.
 
 ## Package-specific rules
 
