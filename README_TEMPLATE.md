@@ -1,15 +1,14 @@
 # username/project
 
-Replace this paragraph with a concise description of what the Rust library does, who it serves, and why a consumer would use it.
+Replace this paragraph with a concise description of what the command-line application does, who it serves, and why a user would run it.
 
 ## Usage
 
-Replace this example with the copied project's primary public API.
+Replace this example with the copied project's primary command.
 
-```rust
-use project::add;
-
-assert_eq!(add(2, 3), 5);
+```console
+$ project
+Replace this output.
 ```
 
 ## Key features
@@ -20,26 +19,21 @@ assert_eq!(add(2, 3), 5);
 
 ## Prerequisites
 
-- **Rust**: Replace this text with the minimum supported Rust version or runtime requirement.
+- Replace this item with a tool, platform, account, or runtime that end users need.
 
 ## Setup
 
-1. Add the crate to a Rust project.
-
-```bash
-cargo add project
-```
+Replace this paragraph with the minimal installation or dependency setup that end users need.
 
 ## API
 
-### `add`
+### `project`
 
-Replace this text with the caller-visible behavior, constraints, and failure contract of the public API.
+Replace this text with the command's caller-visible inputs, outputs, exit behavior, and constraints. Replace or extend the example with the copied project's complete public command surface.
 
-Before handoff, inspect the canonical crate registry documentation first. Use its maintained API index when one exists; otherwise document every public declaration inline or link a substantive existing API guide. Remove this sample subsection when it is not part of the copied project's public API.
-
-```rust
-assert_eq!(project::add(2, 3), 5);
+```console
+$ project --help
+Replace this output.
 ```
 
 ## Development

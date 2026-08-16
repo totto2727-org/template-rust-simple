@@ -24,4 +24,7 @@ build:
 test:
     cargo test --all-features
 
+run:
+    cargo run
+
 ci: check build test

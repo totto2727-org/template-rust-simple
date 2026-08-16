@@ -1,9 +1,10 @@
 {
-  description = "A simple Rust library template";
+  description = "A simple Rust CLI template";
 
   inputs.nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
 
-  outputs = { nixpkgs, ... }:
+  outputs =
+    { self, nixpkgs, ... }:
     let
       supportedSystems = [
         "aarch64-darwin"
@@ -11,22 +12,41 @@
         "x86_64-linux"
       ];
       forEachSystem = nixpkgs.lib.genAttrs supportedSystems;
+      overlay = final: _previous: {
+        project = final.callPackage ./package.nix { };
+      };
+      mkPkgs = system: import nixpkgs {
+        inherit system;
+        overlays = [ overlay ];
+      };
     in
     {
-      devShells = forEachSystem (system:
+      overlays.default = overlay;
+
+      packages = forEachSystem (
+        system:
         let
-          pkgs = import nixpkgs { inherit system; };
+          pkgs = mkPkgs system;
+        in
+        rec {
+          inherit (pkgs) project;
+          default = project;
+        }
+      );
+
+      devShells = forEachSystem (
+        system:
+        let
+          pkgs = mkPkgs system;
         in
         {
           default = pkgs.mkShell {
             packages = [
-              pkgs.cargo
-              pkgs.clippy
               pkgs.just
-              pkgs.rustc
-              pkgs.rustfmt
+              pkgs.rustup
             ];
           };
-        });
+        }
+      );
     };
 }

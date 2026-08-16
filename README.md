@@ -1,22 +1,25 @@
-# Rust Simple Library Template
+# Rust Simple CLI Template
 
-A GitHub repository template for starting a small Rust library with reproducible Nix tooling, standard Just tasks, continuous integration, and optional FlakeHub publishing.
+A GitHub repository template for starting a small Rust command-line application with a reproducible Nix development shell, a buildable package and overlay, standard Just tasks, continuous integration, and optional FlakeHub publishing.
 
 ## Usage
 
-Create a repository from the template, replace the crate placeholders, and use the included `add` function as the starting public API:
+Create a repository from the template, complete the conversion described in `AGENTS.md`, and run the included command:
 
-```rust
-use project::add;
+```console
+$ cargo run --quiet
+Hello, world!
 
-assert_eq!(add(2, 3), 5);
+$ nix run .
+Hello, world!
 ```
 
 ## Key features
 
-- Rust 2024 library layout with documented public API and an integration test
-- Reproducible Nix development shell with Rust, Cargo, Clippy, rustfmt, and Just
-- Standard formatting, linting, build, test, and CI tasks
+- Rust 2024 command-line layout with an end-to-end integration test
+- Reproducible Nix development shell with rustup and Just
+- Buildable Nix package and reusable overlay
+- Standard formatting, linting, build, test, run, and CI tasks
 - Strict Clippy policy with `unsafe` code forbidden by default
 - Optional FlakeHub publishing workflow
 - Copy-target README and AGENTS templates that follow the share-artifact specification
@@ -24,7 +27,7 @@ assert_eq!(add(2, 3), 5);
 ## Prerequisites
 
 - **GitHub CLI** (optional): Run the documented creation command; GitHub's **Use this template** flow can be used instead.
-- **Nix**: Enter the pinned development environment.
+- **Nix**: Build or run the template package through the pinned flake.
 
 ## Setup
 
@@ -32,30 +35,20 @@ assert_eq!(add(2, 3), 5);
 
 ```bash
 gh repo create username/project --template totto2727-org/template-rust-simple --public --clone
-```
-
-2. Enter the repository and replace the crate name, repository, description, and keywords in `Cargo.toml`.
-
-```bash
 cd project
 ```
 
-3. Enter the development environment.
-
-```bash
-nix develop
-```
-
-4. Complete the documentation, crate, and optional publishing conversion steps in [AGENTS.md](./AGENTS.md), then run `just ci`.
+2. Complete the project-specific conversion in [AGENTS.md](./AGENTS.md).
 
 ## API
 
-### `add`
+### `project`
 
-Returns the sum of two signed 32-bit integers and provides a minimal public function to replace when starting the copied library.
+Runs the sample command-line application and prints one greeting followed by a newline. The copied project replaces this placeholder command and its documented behavior.
 
-```rust
-assert_eq!(project::add(-2, 5), 3);
+```console
+$ nix run .
+Hello, world!
 ```
 
 ## Development
