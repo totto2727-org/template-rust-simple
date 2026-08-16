@@ -34,5 +34,6 @@ Enter the Nix development shell and run the standard Just tasks when modifying t
 nix develop
 just fix
 just ci
-just run-nix
 ```
+
+Run `nix build` or `nix run .` directly when verifying the Nix package.

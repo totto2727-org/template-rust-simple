@@ -18,21 +18,13 @@ check-format:
 check-lint:
     cargo clippy --all-targets --all-features -- -D warnings
 
-build: build-cargo build-nix
-
-build-cargo:
+build:
     cargo build --all-features
-
-build-nix:
-    nix build --no-link
 
 test:
     cargo test --all-features
 
 run:
     cargo run
-
-run-nix:
-    nix run .
 
 ci: check build test

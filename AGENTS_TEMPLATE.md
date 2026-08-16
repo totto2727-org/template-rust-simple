@@ -34,11 +34,10 @@ just check
 just build
 just test
 just run
-just run-nix
 just ci
 ```
 
-Targeted tasks are available as `fix-format`, `fix-lint`, `check-format`, `check-lint`, `build-cargo`, and `build-nix`.
+Targeted tasks are available as `fix-format`, `fix-lint`, `check-format`, and `check-lint`. Run `nix build` or `nix run .` directly when verifying the Nix package.
 
 ## Package Updates
 
