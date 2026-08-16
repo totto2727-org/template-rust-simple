@@ -1,15 +1,17 @@
 # username/project
 
-Replace this paragraph with a concise description of what the library does, who it is for, and why someone would use it.
+Replace this paragraph with a concise description of what the command-line application does, who it is for, and why someone would use it.
 
 ## Usage
 
-Replace the sample below with the copied project's primary public API.
+Replace the sample below with the copied project's primary command.
 
-```rust
-use project::add;
+```console
+$ cargo run --quiet
+Hello, world!
 
-assert_eq!(add(2, 3), 5);
+$ nix run .
+Hello, world!
 ```
 
 ## Key Features

@@ -10,9 +10,11 @@ Replace this paragraph with the project-specific guidance that AI agents need be
 ## Repository Structure
 
 - `Cargo.toml` defines the crate metadata, lint policy, and dependencies.
-- `src/` contains the library implementation.
-- `tests/` contains integration tests.
-- `flake.nix` and `flake.lock` define the reproducible development environment.
+- `rust-toolchain.toml` defines the Rust channel and rustup components.
+- `src/main.rs` contains the command-line application entry point.
+- `tests/` contains end-to-end command tests.
+- `package.nix` defines the installable Nix package built with nixpkgs' Rust platform independently of the rustup development toolchain.
+- `flake.nix` and `flake.lock` expose the package and overlay while pinning rustup, Just, and other Nix-provided tools.
 - `.github/workflows/` contains validation and optional publishing workflows.
 
 ## Development Commands
@@ -31,20 +33,21 @@ just fix
 just check
 just build
 just test
+just run
 just ci
 ```
 
-Targeted tasks are available as `fix-format`, `fix-lint`, `check-format`, and `check-lint`.
+Targeted tasks are available as `fix-format`, `fix-lint`, `check-format`, and `check-lint`. Run `nix build` or `nix run .` directly when verifying the Nix package.
 
 ## Package Updates
 
-When upgrading a package or the Rust toolchain, update `Cargo.lock` as needed and run `nix flake update`.
+Update `Cargo.lock` when dependencies change. Update `rust-toolchain.toml` when the Rust channel, components, or targets change. Run `nix flake update` when Nix inputs change.
 
 ## Rust Conventions
 
 - Keep `unsafe` code forbidden unless the project documents and reviews a necessary exception.
 - Preserve the lint policy in `Cargo.toml` unless the project documents a deliberate change.
-- Keep public APIs documented and cover externally observable behavior with integration tests.
+- Cover externally observable command behavior with end-to-end tests.
 
 ## Architecture and Conventions
 
@@ -52,7 +55,8 @@ Replace this section with the copied project's source layout, public boundaries,
 
 ## Development Tools
 
-- **Rust and Cargo** - build, check, test, and package the library.
+- **Rustup** - installs and selects the Rust toolchain declared in `rust-toolchain.toml`.
+- **Rust and Cargo** - build, check, test, and run the command-line application.
 - **Clippy and rustfmt** - lint and format Rust source code.
 - **Just** - provides the standard development commands.
-- **Nix flakes** - provide the pinned development toolchain and dependencies.
+- **Nix flakes** - build the package with nixpkgs' Rust platform and expose its package and overlay while pinning rustup, Just, and other Nix-provided tools.

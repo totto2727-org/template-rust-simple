@@ -3,11 +3,11 @@ name = "project"
 version = "0.1.0"
 edition = "2024"
 rust-version = "1.85"
-description = "A simple Rust library"
+description = "A simple Rust command-line application"
 repository = "https://github.com/username/project"
 readme = "README.md"
 license = "MIT"
-keywords = ["rust", "library"]
+keywords = ["rust", "cli"]
 
 [lints.rust]
 unsafe_code = "forbid"
