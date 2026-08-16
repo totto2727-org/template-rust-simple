@@ -11,7 +11,7 @@ This file describes how AI agents maintain this template and convert a repositor
 
 After creating a repository with GitHub's **Use this template** button, complete every step below:
 
-1. Replace `project`, `username/project`, and the repository URL in `Cargo.toml`, `package.nix`, `flake.nix`, and `tests/cli.rs`.
+1. Replace `project` in `Cargo.toml`, `package.nix`, `flake.nix`, and `tests/cli.rs`, then replace `username/project` and the repository URL in `Cargo.toml`.
 2. Update the package description, keywords, version, and Nix metadata.
 3. If the copied project does not need a Nix package or overlay, delete `package.nix` and remove the `packages`, `overlays`, and related package wiring from `flake.nix`, leaving the development shell in place.
 4. Keep `rust-toolchain.toml` on stable Rust or replace its channel, components, and targets with the copied project's requirements.
