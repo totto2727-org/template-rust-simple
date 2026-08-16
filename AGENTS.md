@@ -43,7 +43,7 @@ tests/cli.rs                End-to-end command test
 
 - `README.md` and this `AGENTS.md` describe how to use and maintain the template repository.
 - `README_TEMPLATE.md` and `AGENTS_TEMPLATE.md` become the copied project's documentation after their placeholders are replaced.
-- All four documents follow the share-artifact README or AGENTS structure and retain their provenance footers, with the explicit project-level exception that no `CLAUDE.md` alias is maintained.
+- All four documents follow the share-artifact README or AGENTS structure and retain their provenance footers.
 
 ### Command and package
 
