@@ -11,9 +11,10 @@ Replace this paragraph with the project-specific guidance that AI agents need be
 
 - `Cargo.toml` defines the crate metadata, lint policy, and dependencies.
 - `rust-toolchain.toml` defines the Rust channel and rustup components.
-- `src/` contains the library implementation.
-- `tests/` contains integration tests.
-- `flake.nix` and `flake.lock` pin rustup, Just, and other Nix-provided development tools.
+- `src/main.rs` contains the command-line application entry point.
+- `tests/` contains end-to-end command tests.
+- `package.nix` defines the installable Nix package.
+- `flake.nix` and `flake.lock` expose the package and overlay while pinning rustup, Just, and other Nix-provided tools.
 - `.github/workflows/` contains validation and optional publishing workflows.
 
 ## Development Commands
@@ -32,10 +33,12 @@ just fix
 just check
 just build
 just test
+just run
+just run-nix
 just ci
 ```
 
-Targeted tasks are available as `fix-format`, `fix-lint`, `check-format`, and `check-lint`.
+Targeted tasks are available as `fix-format`, `fix-lint`, `check-format`, `check-lint`, `build-cargo`, and `build-nix`.
 
 ## Package Updates
 
@@ -45,7 +48,7 @@ Update `Cargo.lock` when dependencies change. Update `rust-toolchain.toml` when 
 
 - Keep `unsafe` code forbidden unless the project documents and reviews a necessary exception.
 - Preserve the lint policy in `Cargo.toml` unless the project documents a deliberate change.
-- Keep public APIs documented and cover externally observable behavior with integration tests.
+- Cover externally observable command behavior with end-to-end tests.
 
 ## Architecture and Conventions
 
@@ -54,7 +57,7 @@ Replace this section with the copied project's source layout, public boundaries,
 ## Development Tools
 
 - **Rustup** - installs and selects the Rust toolchain declared in `rust-toolchain.toml`.
-- **Rust and Cargo** - build, check, test, and package the library.
+- **Rust and Cargo** - build, check, test, and run the command-line application.
 - **Clippy and rustfmt** - lint and format Rust source code.
 - **Just** - provides the standard development commands.
-- **Nix flakes** - pin rustup, Just, and other Nix-provided development tools.
+- **Nix flakes** - build and expose the package and overlay while pinning rustup, Just, and other Nix-provided tools.

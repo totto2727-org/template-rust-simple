@@ -11,13 +11,14 @@ This file describes how AI agents maintain this template and convert a repositor
 
 After creating a repository with GitHub's **Use this template** button, complete every step below:
 
-1. Replace `project`, `username/project`, and the repository URL in `Cargo.toml`.
-2. Update the package description and keywords in `Cargo.toml`.
-3. Keep `rust-toolchain.toml` on stable Rust or replace its channel, components, and targets with the copied project's requirements.
-4. Replace the placeholders in `README_TEMPLATE.md` with the copied project's user-facing overview, usage, features, prerequisites, setup, and license details.
-5. Replace the placeholders in `AGENTS_TEMPLATE.md` with the copied project's commands, architecture, and conventions.
-6. To publish the Nix flake to FlakeHub, rename `.github/workflows/flakehub-publish-rolling.yml.disabled` to `flakehub-publish-rolling.yml`. Delete the disabled file if FlakeHub publishing is not needed.
-7. Remove the template-only `README.md` and `AGENTS.md`, then promote the completed template files:
+1. Replace `project`, `username/project`, and the repository URL in `Cargo.toml`, `package.nix`, `flake.nix`, and `tests/cli.rs`.
+2. Update the package description, keywords, version, and Nix metadata.
+3. If the copied project does not need a Nix package or overlay, delete `package.nix` and remove the `packages`, `overlays`, and related package wiring from `flake.nix`, leaving the development shell in place.
+4. Keep `rust-toolchain.toml` on stable Rust or replace its channel, components, and targets with the copied project's requirements.
+5. Replace the placeholders in `README_TEMPLATE.md` with the copied project's user-facing overview, usage, features, prerequisites, setup, and license details.
+6. Replace the placeholders in `AGENTS_TEMPLATE.md` with the copied project's commands, architecture, and conventions.
+7. To publish the Nix flake to FlakeHub, rename `.github/workflows/flakehub-publish-rolling.yml.disabled` to `flakehub-publish-rolling.yml`. Delete the disabled file if FlakeHub publishing is not needed.
+8. Remove the template-only `README.md` and `AGENTS.md`, then promote the completed template files:
 
 ```bash
 rm README.md AGENTS.md
@@ -33,4 +34,5 @@ Enter the Nix development shell and run the standard Just tasks when modifying t
 nix develop
 just fix
 just ci
+just run-nix
 ```
