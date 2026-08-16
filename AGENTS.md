@@ -11,7 +11,7 @@ Justfile                    Standard repository tasks
 flake.nix                   Reproducible Rust development environment
 rust-toolchain.toml         Pinned Rust channel and components
 src/lib.rs                  Sample public library implementation
-tests/lib.rs                Sample integration test
+tests/add.rs                Sample integration test
 ```
 
 ## Development commands
@@ -44,7 +44,7 @@ tests/lib.rs                Sample integration test
 ### Library sample
 
 - `src/lib.rs` demonstrates one documented public function without imposing an application architecture on copied repositories.
-- `tests/lib.rs` demonstrates an externally observable integration test and can be replaced with project-specific tests.
+- `tests/add.rs` demonstrates an externally observable integration test and can be replaced with project-specific tests.
 
 ### Quality policy
 
