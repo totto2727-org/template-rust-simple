@@ -13,7 +13,7 @@ Replace this paragraph with the project-specific guidance that AI agents need be
 - `rust-toolchain.toml` defines the Rust channel and rustup components.
 - `src/main.rs` contains the command-line application entry point.
 - `tests/` contains end-to-end command tests.
-- `package.nix` defines the installable Nix package.
+- `package.nix` defines the installable Nix package built with nixpkgs' Rust platform independently of the rustup development toolchain.
 - `flake.nix` and `flake.lock` expose the package and overlay while pinning rustup, Just, and other Nix-provided tools.
 - `.github/workflows/` contains validation and optional publishing workflows.
 
@@ -60,4 +60,4 @@ Replace this section with the copied project's source layout, public boundaries,
 - **Rust and Cargo** - build, check, test, and run the command-line application.
 - **Clippy and rustfmt** - lint and format Rust source code.
 - **Just** - provides the standard development commands.
-- **Nix flakes** - build and expose the package and overlay while pinning rustup, Just, and other Nix-provided tools.
+- **Nix flakes** - build the package with nixpkgs' Rust platform and expose its package and overlay while pinning rustup, Just, and other Nix-provided tools.
