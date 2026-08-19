@@ -4,7 +4,7 @@ Replace this paragraph with a concise description of what the command-line appli
 
 ## Usage
 
-Replace this example with the copied project's primary command.
+Replace this example with the application's primary command and its representative expected output or observable effect.
 
 ```console
 $ project
