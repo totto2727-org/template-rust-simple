@@ -27,7 +27,8 @@ Hello, world!
 ## Prerequisites
 
 - **GitHub CLI** (optional): Run the documented creation command; GitHub's **Use this template** flow can be used instead.
-- **Nix**: Build or run the template package through the pinned flake.
+- **Rust 1.85 or later and Cargo**: Required to run the command from source with `cargo run --quiet`.
+- **Nix with flakes enabled**: Optional alternative for running the packaged command with `nix run .`.
 
 ## Setup
 

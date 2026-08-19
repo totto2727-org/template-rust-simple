@@ -19,7 +19,8 @@ Replace this output.
 
 ## Prerequisites
 
-- Replace this item with a tool, platform, account, or runtime that end users need.
+- **Rust 1.85 or later and Cargo**: Required to run the command from source with `cargo run --quiet`.
+- **Nix with flakes enabled**: Optional alternative for running the packaged command with `nix run .`.
 
 ## Setup
 
