@@ -4,7 +4,7 @@ A GitHub repository template for starting a small Rust command-line application 
 
 ## Usage
 
-Create a repository from the template, complete the conversion described in `AGENTS.md`, and run the included command:
+The included command can be run from source with Cargo or through the Nix package:
 
 ```console
 $ cargo run --quiet
@@ -39,13 +39,23 @@ gh repo create username/project --template totto2727-org/template-rust-simple --
 cd project
 ```
 
-2. Complete the project-specific conversion in [AGENTS.md](./AGENTS.md).
+2. Run the sample directly from source:
+
+```bash
+cargo run --quiet
+```
+
+3. Alternatively, run the packaged command through Nix:
+
+```bash
+nix run .
+```
 
 ## API
 
 ### `project`
 
-Runs the sample command-line application and prints one greeting followed by a newline. The copied project replaces this placeholder command and its documented behavior.
+Runs the sample command-line application and prints one greeting followed by a newline.
 
 ```console
 $ nix run .
