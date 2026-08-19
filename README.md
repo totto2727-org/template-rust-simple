@@ -22,7 +22,6 @@ Hello, world!
 - Standard formatting, linting, build, test, run, and CI tasks
 - Strict Clippy policy with `unsafe` code forbidden by default
 - Optional FlakeHub publishing workflow
-- Copy-target README and AGENTS templates that follow the share-artifact specification
 
 ## Prerequisites
 
