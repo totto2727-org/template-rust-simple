@@ -1,6 +1,6 @@
 # Rust Simple CLI Template
 
-A GitHub repository template for starting a small Rust command-line application with a Nix development shell, a buildable package and overlay, standard Just tasks, continuous integration, and optional FlakeHub publishing.
+A GitHub repository template for starting a small Rust command-line application with an immediately runnable sample, direct Cargo execution, and an optional reproducible Nix package.
 
 ## Usage
 
@@ -16,12 +16,9 @@ Hello, world!
 
 ## Key features
 
-- Rust 2024 command-line layout with an end-to-end integration test
-- Nix development shell with rustup and Just
-- Buildable Nix package and reusable overlay
-- Standard formatting, linting, build, test, run, and CI tasks
-- Strict Clippy policy with `unsafe` code forbidden by default
-- Optional FlakeHub publishing workflow
+- Minimal Rust 2024 command with immediate observable output
+- Direct execution from source with Cargo
+- Optional reproducible execution through the Nix package
 
 ## Prerequisites
 
