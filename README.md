@@ -1,10 +1,10 @@
 # Rust Simple CLI Template
 
-A GitHub repository template for starting a small Rust command-line application with a Nix development shell, a buildable package and overlay, standard Just tasks, continuous integration, and optional FlakeHub publishing.
+A GitHub repository template for starting a small Rust command-line application with an immediately runnable sample, direct Cargo execution, and an optional reproducible Nix package.
 
 ## Usage
 
-Create a repository from the template, complete the conversion described in `AGENTS.md`, and run the included command:
+The included command can be run from source with Cargo or through the Nix package:
 
 ```console
 $ cargo run --quiet
@@ -16,18 +16,15 @@ Hello, world!
 
 ## Key features
 
-- Rust 2024 command-line layout with an end-to-end integration test
-- Nix development shell with rustup and Just
-- Buildable Nix package and reusable overlay
-- Standard formatting, linting, build, test, run, and CI tasks
-- Strict Clippy policy with `unsafe` code forbidden by default
-- Optional FlakeHub publishing workflow
-- Copy-target README and AGENTS templates that follow the share-artifact specification
+- Minimal Rust 2024 command with immediate observable output
+- Direct execution from source with Cargo
+- Optional reproducible execution through the Nix package
 
 ## Prerequisites
 
 - **GitHub CLI** (optional): Run the documented creation command; GitHub's **Use this template** flow can be used instead.
-- **Nix**: Build or run the template package through the pinned flake.
+- **Rust 1.85 or later and Cargo**: Required to run the command from source with `cargo run --quiet`.
+- **Nix with flakes enabled**: Optional alternative for running the packaged command with `nix run .`.
 
 ## Setup
 
@@ -38,13 +35,11 @@ gh repo create username/project --template totto2727-org/template-rust-simple --
 cd project
 ```
 
-2. Complete the project-specific conversion in [AGENTS.md](./AGENTS.md).
-
 ## API
 
 ### `project`
 
-Runs the sample command-line application and prints one greeting followed by a newline. The copied project replaces this placeholder command and its documented behavior.
+Runs the sample command-line application and prints one greeting followed by a newline.
 
 ```console
 $ nix run .

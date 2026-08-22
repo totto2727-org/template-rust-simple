@@ -4,7 +4,7 @@ Replace this paragraph with a concise description of what the command-line appli
 
 ## Usage
 
-Replace this example with the copied project's primary command.
+Use the installed command as the primary no-option example and show its representative output or observable effect.
 
 ```console
 $ project
@@ -19,11 +19,65 @@ Replace this output.
 
 ## Prerequisites
 
-- Replace this item with a tool, platform, account, or runtime that end users need.
+- **Rust 1.85 or later and Cargo**: Required to run the command from source with `cargo run --quiet`.
+- **Nix with flakes enabled**: Optional alternative for running the packaged command with `nix run .`.
 
 ## Setup
 
-Replace this paragraph with the minimal installation or dependency setup that end users need.
+Choose one of the following setup methods. Only one is required.
+
+### Run without installing
+
+```bash
+nix run github:username/project
+```
+
+### Install the command
+
+Choose one installation command. Use crates.io only when the crate is published there:
+
+```bash
+cargo install project
+```
+
+or install from Git:
+
+```bash
+cargo install --git https://github.com/username/project.git
+```
+
+or install with Nix:
+
+```bash
+nix profile install github:username/project
+```
+
+### Add declaratively with Nix
+
+Add the project's overlay and package to `flake.nix`.
+
+```nix
+{
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    project.url = "github:username/project";
+  };
+
+  outputs = { nixpkgs, project, ... }:
+    let
+      system = "aarch64-darwin"; # Replace with a supported host system.
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [ project.overlays.default ];
+      };
+    in
+    {
+      devShells.${system}.default = pkgs.mkShell {
+        packages = [ pkgs.project ];
+      };
+    };
+}
+```
 
 ## API
 
