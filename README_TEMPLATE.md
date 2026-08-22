@@ -24,21 +24,37 @@ Replace this output.
 
 ## Setup
 
-1. Show direct execution through Nix without installation.
+Choose one of the following setup methods. Only one is required.
+
+### Run without installing
 
 ```bash
 nix run github:username/project
 ```
 
-2. Show Cargo and Nix installation. Keep the crates.io command only when the crate is published there; otherwise keep the Git command.
+### Install the command
+
+Choose one installation command. Use crates.io only when the crate is published there:
 
 ```bash
 cargo install project
+```
+
+or install from Git:
+
+```bash
 cargo install --git https://github.com/username/project.git
+```
+
+or install with Nix:
+
+```bash
 nix profile install github:username/project
 ```
 
-3. Show declarative installation through the project's overlay in `flake.nix`.
+### Add declaratively with Nix
+
+Add the project's overlay and package to `flake.nix`.
 
 ```nix
 {

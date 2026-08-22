@@ -65,7 +65,7 @@ Replace the sample paths with the copied project's actual source and test layout
 
 - Replace this section with repository-specific invariants and remove placeholder guidance before handoff.
 - Keep README Usage centered on the installed command with no options when possible.
-- Keep README Setup complete: direct `nix run`, the applicable crates.io or Git `cargo install`, `nix profile install`, and a declarative `flake.nix` example using `overlays.default`.
+- Keep README Setup complete: present direct `nix run`, the applicable crates.io or Git `cargo install`, `nix profile install`, and a declarative `flake.nix` example using `overlays.default` as mutually exclusive choices; state that only one setup method is required.
 - Keep publishing workflows disabled until every mutable `uses:` reference in each privileged publishing workflow is pinned to an audited full commit SHA.
 - Before enabling FlakeHub publication, use the official FlakeHub publishing wizard to verify the repository name, set visibility to `public`, and verify the trusted GitHub organization binding; run `nix flake check --all-systems --no-build` and confirm the workflow triggers only from protected `main`.
 - Update `Cargo.lock` after dependency or toolchain changes, update `rust-toolchain.toml` when the channel or components change, and run `nix flake update` after Nix input changes.
