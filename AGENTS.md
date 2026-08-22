@@ -72,6 +72,7 @@ tests/cli.rs                End-to-end command test
 - Delete `package.nix` and remove the package and overlay wiring from `flake.nix` only when the copied project does not need an installable Nix package; keep the development shell.
 - Keep or replace the stable `rust-toolchain.toml` channel, components, and targets according to the copied project's requirements.
 - Customize `README_TEMPLATE.md` and `AGENTS_TEMPLATE.md`. Document the complete public command surface inline; if the copied project introduces a library API, inspect its canonical registry documentation first and use a maintained registry API index when available.
+- In the generated README, keep Usage focused on the installed command and document direct `nix run`, the applicable crates.io or Git `cargo install`, `nix profile install`, and declarative overlay-based `flake.nix` setup.
 - After removing all placeholders, replace the template-only canonical documents:
 
 ```bash
