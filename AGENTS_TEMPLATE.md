@@ -51,7 +51,7 @@ Replace the sample paths with the copied project's actual source and test layout
 ### Packaging
 
 - Keep `package.nix` metadata, `Cargo.toml`, the flake package name, and the executable name aligned.
-- Remove package and overlay outputs only when the project deliberately retains the Nix development shell without distributing a Nix package.
+- Keep package and overlay outputs for distributable CLI applications so every documented Nix path remains valid; remove them only when the project is no longer distributed as a CLI.
 
 ## Development tools
 
