@@ -19,20 +19,20 @@ Replace this output.
 
 ## Prerequisites
 
-- **Rust 1.85 or later and Cargo**: Required to run the command from source with `cargo run --quiet`.
-- **Nix with flakes enabled**: Optional alternative for running the packaged command with `nix run .`.
+- **Nix with flakes enabled**: Required for the `nix run`, `nix profile add`, and declarative Nix paths below.
+- **Rust and Cargo** (optional): Required only when retaining one of the `cargo install` paths.
 
 ## Setup
 
-Choose one of the following setup methods. Only one is required.
+Keep every delivery path that the completed command supports, and remove unsupported paths before publishing its README. A command-line application should document a temporary invocation, a persistent installation, and a declarative Nix consumer configuration when those paths are available. Libraries instead document only their dependency-add command. Cargo does not provide a remote one-shot launcher, so do not present `cargo run` as an installation-free consumer path.
 
-### Run without installing
+### Run once without installing
 
 ```bash
 nix run github:username/project
 ```
 
-### Install the command
+### Install the command persistently
 
 Choose one installation command. Use crates.io only when the crate is published there:
 
@@ -49,7 +49,7 @@ cargo install --git https://github.com/username/project.git
 or install with Nix:
 
 ```bash
-nix profile install github:username/project
+nix profile add github:username/project
 ```
 
 ### Add declaratively with Nix
