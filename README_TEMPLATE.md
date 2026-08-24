@@ -19,20 +19,20 @@ Replace this output.
 
 ## Prerequisites
 
-- **Nix with flakes enabled**: Required for the `nix run`, `nix profile add`, and declarative Nix paths below.
-- **Rust and Cargo** (optional): Required only when retaining one of the `cargo install` paths.
+- **Nix with flakes enabled**
+- **Rust and Cargo** when using a `cargo install` path
 
 ## Setup
 
-Keep every delivery path that the completed command supports, and remove unsupported paths before publishing its README. A command-line application should document a temporary invocation, a persistent installation, and a declarative Nix consumer configuration when those paths are available. Libraries instead document only their dependency-add command. Cargo does not provide a remote one-shot launcher, so do not present `cargo run` as an installation-free consumer path.
+Document only the delivery paths supported by the completed command. Applications should include a one-shot invocation, a persistent installation, and a declarative Nix configuration when available. Libraries should document only their dependency-add command.
 
-### Run once without installing
+### Run
 
 ```bash
 nix run github:username/project
 ```
 
-### Install the command persistently
+### Install the command
 
 Choose one installation command. Use crates.io only when the crate is published there:
 
