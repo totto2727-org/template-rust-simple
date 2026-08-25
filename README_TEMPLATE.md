@@ -4,7 +4,7 @@ Replace this paragraph with a concise description of what the command-line appli
 
 ## Usage
 
-Use the installed command as the primary no-option example and show its representative output or observable effect.
+Show one representative command invocation and its expected output or observable effect.
 
 ```console
 $ project
@@ -19,12 +19,12 @@ Replace this output.
 
 ## Prerequisites
 
-- **Rust 1.85 or later and Cargo**: Required to run the command from source with `cargo run --quiet`.
-- **Nix with flakes enabled**: Optional alternative for running the packaged command with `nix run .`.
+- **Nix with flakes enabled**
+- **Rust and Cargo** when using a `cargo install` path
 
 ## Setup
 
-Choose one of the following setup methods. Only one is required.
+Document only the delivery paths supported by the completed command. Applications should include a one-shot invocation, a persistent installation, and a declarative Nix configuration when available. Libraries should document only their dependency-add command.
 
 ### Run without installing
 
@@ -32,27 +32,20 @@ Choose one of the following setup methods. Only one is required.
 nix run github:username/project
 ```
 
-### Install the command
+### Install
 
-Choose one installation command. Use crates.io only when the crate is published there:
+Choose one supported installation command. Remove unsupported commands before publishing the README.
 
 ```bash
+# crates.io
 cargo install project
-```
-
-or install from Git:
-
-```bash
+# Git
 cargo install --git https://github.com/username/project.git
+# Nix
+nix profile add github:username/project
 ```
 
-or install with Nix:
-
-```bash
-nix profile install github:username/project
-```
-
-### Add declaratively with Nix
+### Nix flake
 
 Add the project's overlay and package to `flake.nix`.
 
@@ -83,7 +76,7 @@ Add the project's overlay and package to `flake.nix`.
 
 ### `project`
 
-Replace this text with the command's caller-visible inputs, outputs, exit behavior, and constraints. Replace or extend the example with the copied project's complete public command surface.
+Replace this text with the command's caller-visible inputs, outputs, exit behavior, and constraints. Show one representative discovery command or API example; do not repeat it for each setup path.
 
 ```console
 $ project --help
