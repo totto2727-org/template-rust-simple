@@ -15,10 +15,12 @@
       overlay = final: _previous: {
         project = final.callPackage ./package.nix { };
       };
-      mkPkgs = system: import nixpkgs {
-        inherit system;
-        overlays = [ overlay ];
-      };
+      mkPkgs =
+        system:
+        import nixpkgs {
+          inherit system;
+          overlays = [ overlay ];
+        };
     in
     {
       overlays.default = overlay;
@@ -45,6 +47,10 @@
               pkgs.just
               pkgs.rustup
             ];
+            shellHook = ''
+              # Enable Git Hook
+              vp config
+            '';
           };
         }
       );
